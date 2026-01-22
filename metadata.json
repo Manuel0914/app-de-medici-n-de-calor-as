@@ -1,0 +1,7 @@
+{
+  "name": "Copy of Copy of Copy of Copy of NutriAI - Tu Asistente de Nutrición Inteligente",
+  "description": "Una aplicación avanzada de nutrición que analiza tus comidas, genera planes semanales realistas y listas de la compra optimizadas usando IA.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
