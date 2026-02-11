@@ -1,0 +1,334 @@
+/* ===========================
+   Estilos principales de la aplicación
+   de medición de calorías
+   =========================== */
+
+/* Reset básico y estilos globales */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f7fa;
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem 1rem;
+}
+
+/* Contenedor principal centrado */
+.container {
+  max-width: 600px;
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  padding: 2rem;
+}
+
+/* Encabezado de la aplicación */
+.app-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.app-header h1 {
+  font-size: 1.8rem;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.app-header p {
+  font-size: 1rem;
+  color: #7f8c8d;
+  line-height: 1.5;
+}
+
+/* Sección de subida de imagen */
+.upload-section {
+  margin-bottom: 2rem;
+}
+
+.upload-section h2 {
+  font-size: 1.2rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+/* Área de arrastrar y soltar / seleccionar imagen */
+.upload-area {
+  border: 2px dashed #bdc3c7;
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.3s, background-color 0.3s;
+  margin-bottom: 1rem;
+}
+
+.upload-area:hover {
+  border-color: #3498db;
+  background-color: #f0f8ff;
+}
+
+.upload-area.has-image {
+  border-color: #27ae60;
+  background-color: #f0fff4;
+}
+
+.upload-area p {
+  color: #95a5a6;
+  font-size: 0.95rem;
+}
+
+.upload-area .icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Input de archivo oculto */
+#image-input {
+  display: none;
+}
+
+/* Vista previa de la imagen subida */
+.image-preview {
+  max-width: 100%;
+  max-height: 250px;
+  border-radius: 8px;
+  margin-top: 1rem;
+  display: none;
+}
+
+.image-preview.visible {
+  display: block;
+}
+
+/* Botón de analizar */
+.analyze-btn {
+  width: 100%;
+  padding: 0.9rem;
+  background-color: #3498db;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.1s;
+}
+
+.analyze-btn:hover {
+  background-color: #2980b9;
+}
+
+.analyze-btn:active {
+  transform: scale(0.98);
+}
+
+.analyze-btn:disabled {
+  background-color: #bdc3c7;
+  cursor: not-allowed;
+}
+
+/* Sección de resultados */
+.results-section {
+  display: none;
+  margin-top: 2rem;
+  animation: fadeIn 0.4s ease-in;
+}
+
+.results-section.visible {
+  display: block;
+}
+
+.results-section h2 {
+  font-size: 1.3rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* Tarjeta de calorías totales */
+.calories-card {
+  background: linear-gradient(135deg, #3498db, #2ecc71);
+  color: #ffffff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.calories-card .calories-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.calories-card .calories-label {
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+/* Tarjetas de macronutrientes */
+.macros-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.macro-card {
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+  border: 1px solid #e9ecef;
+}
+
+.macro-card .macro-value {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+}
+
+.macro-card .macro-label {
+  font-size: 0.8rem;
+  color: #7f8c8d;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Colores específicos para cada macronutriente */
+.macro-card.protein .macro-value {
+  color: #e74c3c;
+}
+
+.macro-card.fats .macro-value {
+  color: #f39c12;
+}
+
+.macro-card.carbs .macro-value {
+  color: #9b59b6;
+}
+
+/* Lista de alimentos detectados */
+.food-list {
+  margin-bottom: 1rem;
+}
+
+.food-list h3 {
+  font-size: 1.05rem;
+  color: #2c3e50;
+  margin-bottom: 0.75rem;
+}
+
+.food-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.food-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.7rem 1rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  border: 1px solid #e9ecef;
+}
+
+.food-list li .food-name {
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+.food-list li .food-calories {
+  color: #3498db;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* Animación de aparición */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Indicador de carga */
+.loading {
+  text-align: center;
+  padding: 2rem;
+  display: none;
+}
+
+.loading.visible {
+  display: block;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #e9ecef;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading p {
+  color: #7f8c8d;
+  font-size: 0.95rem;
+}
+
+/* ===========================
+   Responsive básico
+   =========================== */
+@media (max-width: 480px) {
+  body {
+    padding: 1rem 0.5rem;
+  }
+
+  .container {
+    padding: 1.5rem;
+    border-radius: 12px;
+  }
+
+  .app-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .macros-container {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+  }
+
+  .macro-card {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .macro-card .macro-value {
+    font-size: 1.2rem;
+  }
+
+  .calories-card .calories-value {
+    font-size: 2rem;
+  }
+}
