@@ -3,102 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora de Calorías - Análisis de Alimentos</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <title>Calculadora de Calorías</title>
+    <!-- Enlace al archivo CSS -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Contenedor principal -->
+    <!-- Contenedor principal de la aplicación -->
     <div class="container">
-        <!-- Encabezado de la aplicación -->
+        
+        <!-- Encabezado con título y descripción -->
         <header class="header">
-            <h1 class="title">🍽️ Calculadora de Calorías</h1>
-            <p class="description">
-                Sube una imagen de tu plato de comida y obtén una estimación instantánea 
+            <h1>🍽️ Calculadora de Calorías</h1>
+            <p>
+                Sube una imagen de tu plato de comida y obtén una estimación 
                 de calorías y macronutrientes (proteínas, grasas y carbohidratos).
             </p>
         </header>
 
-        <!-- Sección de carga de imagen -->
+        <!-- Sección para subir imagen -->
         <section class="upload-section">
-            <div class="upload-container">
-                <label for="imageInput" class="upload-label">
-                    <div class="upload-icon">📷</div>
-                    <span class="upload-text">Selecciona una imagen</span>
-                    <span class="upload-hint">o arrastra y suelta aquí</span>
-                </label>
-                <input 
-                    type="file" 
-                    id="imageInput" 
-                    accept="image/*" 
-                    class="file-input"
-                >
-            </div>
-
-            <!-- Vista previa de la imagen -->
-            <div id="imagePreview" class="image-preview hidden">
-                <img id="previewImage" src="" alt="Vista previa">
-            </div>
-
-            <!-- Botón para analizar -->
-            <button id="analyzeButton" class="analyze-button hidden">
-                Analizar Imagen
-            </button>
+            <label for="inputImagen">Selecciona una imagen de tu comida:</label>
+            <input 
+                type="file" 
+                id="inputImagen" 
+                accept="image/*"
+                aria-label="Seleccionar imagen de comida"
+            >
         </section>
 
-        <!-- Sección de resultados -->
-        <section id="resultsSection" class="results-section hidden">
-            <h2 class="results-title">📊 Resultados del Análisis</h2>
-            
-            <!-- Tarjeta de resumen de macronutrientes -->
-            <div class="summary-cards">
-                <div class="summary-card">
-                    <div class="card-icon">🔥</div>
-                    <div class="card-content">
-                        <span class="card-label">Calorías Totales</span>
-                        <span id="totalCalories" class="card-value">0</span>
-                        <span class="card-unit">kcal</span>
-                    </div>
-                </div>
-                
-                <div class="summary-card">
-                    <div class="card-icon">🥩</div>
-                    <div class="card-content">
-                        <span class="card-label">Proteínas</span>
-                        <span id="totalProtein" class="card-value">0</span>
-                        <span class="card-unit">g</span>
-                    </div>
-                </div>
-                
-                <div class="summary-card">
-                    <div class="card-icon">🥑</div>
-                    <div class="card-content">
-                        <span class="card-label">Grasas</span>
-                        <span id="totalFat" class="card-value">0</span>
-                        <span class="card-unit">g</span>
-                    </div>
-                </div>
-                
-                <div class="summary-card">
-                    <div class="card-icon">🍞</div>
-                    <div class="card-content">
-                        <span class="card-label">Carbohidratos</span>
-                        <span id="totalCarbs" class="card-value">0</span>
-                        <span class="card-unit">g</span>
-                    </div>
-                </div>
-            </div>
+        <!-- Botón para analizar la imagen -->
+        <button id="botonAnalizar" class="analyze-button">
+            Analizar
+        </button>
 
-            <!-- Lista de alimentos detectados -->
-            <div class="detected-foods">
-                <h3 class="foods-title">Alimentos Detectados</h3>
-                <div id="foodsList" class="foods-list">
-                    <!-- Los alimentos se insertarán aquí dinámicamente -->
-                </div>
+        <!-- Sección de resultados (inicialmente oculta) -->
+        <section id="seccionResultados" class="results-section hidden">
+            <h2>📊 Resultados del Análisis</h2>
+            <div id="contenidoResultados" class="results-content">
+                <!-- Los resultados se mostrarán aquí dinámicamente -->
+                <p>Aquí se mostrarán los resultados del análisis...</p>
             </div>
         </section>
+
     </div>
 
     <!-- Enlace al archivo JavaScript -->
-    <script src="js/app.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
