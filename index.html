@@ -1,32 +1,53 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NutriAI - Asistente de Nutrición</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #fffaf0; /* Fondo crema cálido */
-        }
-    </style>
-<script type="importmap">
-{
-  "imports": {
-    "react": "https://esm.sh/react@^19.2.3",
-    "react/": "https://esm.sh/react@^19.2.3/",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-    "@google/genai": "https://esm.sh/@google/genai@^1.38.0"
-  }
-}
-</script>
+    <title>Calculadora de Calorías</title>
+    <!-- Enlace al archivo CSS -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="root"></div>
+    <!-- Contenedor principal de la aplicación -->
+    <div class="container">
+        
+        <!-- Encabezado con título y descripción -->
+        <header class="header">
+            <h1>🍽️ Calculadora de Calorías</h1>
+            <p>
+                Sube una imagen de tu plato de comida y obtén una estimación 
+                de calorías y macronutrientes (proteínas, grasas y carbohidratos).
+            </p>
+        </header>
+
+        <!-- Sección para subir imagen -->
+        <section class="upload-section">
+            <label for="inputImagen">Selecciona una imagen de tu comida:</label>
+            <input 
+                type="file" 
+                id="inputImagen" 
+                accept="image/*"
+                aria-label="Seleccionar imagen de comida"
+            >
+        </section>
+
+        <!-- Botón para analizar la imagen -->
+        <button id="botonAnalizar" class="analyze-button">
+            Analizar
+        </button>
+
+        <!-- Sección de resultados (inicialmente oculta) -->
+        <section id="seccionResultados" class="results-section hidden">
+            <h2>📊 Resultados del Análisis</h2>
+            <div id="contenidoResultados" class="results-content">
+                <!-- Los resultados se mostrarán aquí dinámicamente -->
+                <p>Aquí se mostrarán los resultados del análisis...</p>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Enlace al archivo JavaScript -->
+    <script src="script.js"></script>
 </body>
 </html>

@@ -1,0 +1,266 @@
+/* ================================
+   ESTILOS DE LA APLICACIÓN
+   Calculadora de Calorías
+   ================================ */
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos del body */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+    color: #333;
+}
+
+/* Contenedor principal */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    padding: 40px;
+}
+
+/* Encabezado */
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.header h1 {
+    font-size: 2.5em;
+    color: #667eea;
+    margin-bottom: 15px;
+}
+
+.header p {
+    font-size: 1.1em;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Sección de subida de imagen */
+.upload-section {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.upload-section label {
+    display: block;
+    margin-bottom: 15px;
+    font-weight: 600;
+    color: #667eea;
+    font-size: 1.1em;
+}
+
+.upload-section input[type="file"] {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    border: 2px dashed #667eea;
+    border-radius: 15px;
+    background: #f8f9ff;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.upload-section input[type="file"]:hover {
+    background: #eef1ff;
+    border-color: #764ba2;
+}
+
+/* Botón de análisis */
+.analyze-button {
+    width: 100%;
+    padding: 18px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.2em;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.analyze-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+}
+
+.analyze-button:active {
+    transform: translateY(0);
+}
+
+/* Sección de resultados */
+.results-section {
+    margin-top: 40px;
+    padding-top: 40px;
+    border-top: 2px solid #eee;
+}
+
+.results-section h2 {
+    font-size: 1.8em;
+    color: #667eea;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.results-content {
+    background: #f8f9ff;
+    border-radius: 15px;
+    padding: 30px;
+    min-height: 100px;
+    color: #666;
+}
+
+.subtitulo-resultados {
+    font-size: 1.3em;
+    color: #667eea;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+/* Grid de totales */
+.totales-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.total-card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease;
+}
+
+.total-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.total-emoji {
+    font-size: 2em;
+}
+
+.total-info {
+    flex: 1;
+}
+
+.total-valor {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: #667eea;
+    line-height: 1.2;
+}
+
+.total-label {
+    font-size: 0.85em;
+    color: #666;
+    margin-top: 2px;
+}
+
+/* Lista de alimentos */
+.alimentos-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.alimento-item {
+    background: white;
+    border-radius: 12px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+    transition: all 0.2s ease;
+}
+
+.alimento-item:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transform: translateX(5px);
+}
+
+.alimento-emoji {
+    font-size: 2.5em;
+}
+
+.alimento-info {
+    flex: 1;
+}
+
+.alimento-nombre {
+    font-size: 1.1em;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.alimento-detalles {
+    font-size: 0.9em;
+    color: #666;
+}
+
+/* Clase para ocultar elementos */
+.hidden {
+    display: none;
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+    .container {
+        padding: 30px 20px;
+    }
+    
+    .header h1 {
+        font-size: 2em;
+    }
+    
+    .header p {
+        font-size: 1em;
+    }
+    
+    .totales-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    
+    .container {
+        padding: 20px 15px;
+    }
+    
+    .header h1 {
+        font-size: 1.5em;
+    }
+    
+    .totales-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .alimento-item {
+        flex-direction: column;
+        text-align: center;
+    }
+}
