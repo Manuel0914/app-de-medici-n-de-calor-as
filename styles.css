@@ -120,7 +120,101 @@ body {
     border-radius: 15px;
     padding: 30px;
     min-height: 100px;
-    text-align: center;
+    color: #666;
+}
+
+.subtitulo-resultados {
+    font-size: 1.3em;
+    color: #667eea;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+/* Grid de totales */
+.totales-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.total-card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease;
+}
+
+.total-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.total-emoji {
+    font-size: 2em;
+}
+
+.total-info {
+    flex: 1;
+}
+
+.total-valor {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: #667eea;
+    line-height: 1.2;
+}
+
+.total-label {
+    font-size: 0.85em;
+    color: #666;
+    margin-top: 2px;
+}
+
+/* Lista de alimentos */
+.alimentos-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.alimento-item {
+    background: white;
+    border-radius: 12px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+    transition: all 0.2s ease;
+}
+
+.alimento-item:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transform: translateX(5px);
+}
+
+.alimento-emoji {
+    font-size: 2.5em;
+}
+
+.alimento-info {
+    flex: 1;
+}
+
+.alimento-nombre {
+    font-size: 1.1em;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.alimento-detalles {
+    font-size: 0.9em;
     color: #666;
 }
 
@@ -142,6 +236,10 @@ body {
     .header p {
         font-size: 1em;
     }
+    
+    .totales-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media (max-width: 480px) {
@@ -155,5 +253,14 @@ body {
     
     .header h1 {
         font-size: 1.5em;
+    }
+    
+    .totales-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .alimento-item {
+        flex-direction: column;
+        text-align: center;
     }
 }
