@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NutriAI - Análisis de Comida</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="header-title">
+                <span class="header-icon">🥗</span>
+                <span>Nutri<span class="accent">AI</span></span>
+            </h1>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Upload Section -->
+            <section class="section upload-section">
+                <div class="section-header">
+                    <h2>Analiza tu comida</h2>
+                    <p>Sube una foto de tu plato para obtener un análisis nutricional.</p>
+                </div>
+
+                <div class="upload-card">
+                    <!-- Image Preview -->
+                    <div id="preview-container" class="preview-container hidden">
+                        <img id="image-preview" alt="Vista previa de la comida">
+                        <button id="btn-remove-image" class="btn-remove" title="Eliminar imagen">✕</button>
+                    </div>
+
+                    <!-- Upload Area -->
+                    <div id="upload-area" class="upload-area">
+                        <div class="upload-icon">📷</div>
+                        <p class="upload-text">Arrastra una imagen aquí o haz clic para seleccionar</p>
+                        <p class="upload-hint">Formatos: JPG, PNG, WEBP</p>
+                    </div>
+                    <input type="file" id="file-input" accept="image/*" class="hidden">
+
+                    <!-- Analyze Button -->
+                    <button id="btn-analyze" class="btn-analyze" disabled>
+                        <span id="btn-text">Analizar comida</span>
+                        <div id="btn-spinner" class="spinner hidden"></div>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Results Section -->
+            <section id="results-section" class="section results-section hidden">
+                <div class="results-header">
+                    <h3>
+                        <span class="dot"></span>
+                        Resultado del Análisis
+                    </h3>
+                </div>
+
+                <div class="results-card">
+                    <!-- Summary -->
+                    <div class="result-summary">
+                        <div class="summary-info">
+                            <span class="label">Resumen del Plato</span>
+                            <h4 id="result-summary-text"></h4>
+                        </div>
+                        <div class="summary-calories">
+                            <span id="result-calories" class="calories-value"></span>
+                            <span class="calories-label">kcal</span>
+                        </div>
+                    </div>
+
+                    <!-- Macros -->
+                    <div class="macros-grid">
+                        <div class="macro-card macro-protein">
+                            <span id="result-protein" class="macro-value"></span>
+                            <span class="macro-label">Proteína</span>
+                        </div>
+                        <div class="macro-card macro-carbs">
+                            <span id="result-carbs" class="macro-value"></span>
+                            <span class="macro-label">Carbos</span>
+                        </div>
+                        <div class="macro-card macro-fats">
+                            <span id="result-fats" class="macro-value"></span>
+                            <span class="macro-label">Grasas</span>
+                        </div>
+                    </div>
+
+                    <!-- Feedback -->
+                    <div class="feedback-section">
+                        <h5>
+                            <span class="dot dot-green"></span>
+                            Feedback Nutricional
+                        </h5>
+                        <ul id="result-feedback" class="feedback-list"></ul>
+                    </div>
+
+                    <!-- Suggestions -->
+                    <div class="suggestions-section">
+                        <h5>
+                            <span class="dot dot-blue"></span>
+                            Sugerencias de Mejora
+                        </h5>
+                        <div id="result-suggestions" class="suggestions-list"></div>
+                    </div>
+
+                    <p class="disclaimer">* Los valores son estimaciones aproximadas.</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
