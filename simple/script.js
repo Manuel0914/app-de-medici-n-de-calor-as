@@ -110,11 +110,11 @@ function eliminarImagen() {
 
 /** Simular la detección de alimentos en la imagen */
 function simularDeteccionAlimentos() {
-    var cantidad = 3 + Math.floor(Math.random() * 2);
+    var cantidadAlimentos = 3 + Math.floor(Math.random() * 2);
     var indices = [];
     var seleccionados = [];
 
-    while (indices.length < cantidad) {
+    while (indices.length < cantidadAlimentos) {
         var idx = Math.floor(Math.random() * baseDatosAlimentos.length);
         if (indices.indexOf(idx) === -1) {
             indices.push(idx);
